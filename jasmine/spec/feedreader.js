@@ -31,12 +31,34 @@ $(function() {
          * in the allFeeds object and ensures it has a URL defined
          * and that the URL is not empty.
          */
+        function feedsLoopHelper(allfeeds) {
+            it('has URL and is not empy', function() {
+                expect(allfeeds.url).toBeDefined();
+                expect(allfeeds.length).not.toBe(0);
+            });
+        }
+
+        for (let index = 0; index < allFeeds.length; index++) {
+            feedsLoopHelper(allFeeds[index]);
+        }
+        
 
 
         /* TODO: Write a test that loops through each feed
          * in the allFeeds object and ensures it has a name defined
          * and that the name is not empty.
          */
+        function feedsLoopNameHelper(allfeeds) {
+            it('has name and is not empy', function() {
+                expect(allfeeds.name).toBeDefined();
+                expect(allfeeds.length).not.toBe(0);
+            });
+        }
+
+        for (let index = 0; index < allFeeds.length; index++) {
+            feedsLoopNameHelper(allFeeds[index]);
+        }
+
     });
 
 
