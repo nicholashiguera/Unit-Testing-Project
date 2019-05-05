@@ -107,7 +107,7 @@ $(
 
 			it('should load feed and has at least one entry', function(done) {
 				expect(allFeeds[0]).toBeDefined();
-				expect(document.getElementsByClassName('feed')[0].children.length).not.toBe(0);
+				expect(document.getElementsByClassName('feed')[0].children[0].innerText.length).not.toBe(0);
 				done();
 			});
 		});
