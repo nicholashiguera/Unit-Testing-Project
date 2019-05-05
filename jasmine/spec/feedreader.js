@@ -100,7 +100,7 @@ $(
 
 			it('should load feed and has at least one entry', function(done) {
 				expect(allFeeds[0]).toBeDefined();
-				expect(document.getElementsByClassName("feed")[0].children.length).not.toBe(0);
+				expect(document.getElementsByClassName('feed')[0].children.length).not.toBe(0);
 				done();
 			});
 		});
@@ -110,9 +110,27 @@ $(
 			/* TODO: Write a test that ensures when a new feed is loaded
          * by the loadFeed function that the content actually changes.
          * Remember, loadFeed() is asynchronous.
-         * 
-         * 
          */
+
+			let firstFeed, secondFeed;
+
+			beforeEach(function(done) {
+				loadFeed(0, function() {
+					firstFeed = document.getElementsByClassName('feed')[0].children[0].innerText;
+
+					loadFeed(1, function() {
+						secondFeed = document.getElementsByClassName('feed')[0].children[0].innerText;
+
+						done();
+					});
+				});
+			});
+
+			it('should make content on feed change', function(done) {
+				expect(allFeeds).toBeDefined();
+				expect(firstFeed === secondFeed).toBeFalsy();
+				done();
+			});
 		});
 	})()
 );
