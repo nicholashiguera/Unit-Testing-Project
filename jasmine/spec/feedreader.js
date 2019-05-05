@@ -65,7 +65,7 @@ $(
 		* @param {string} - The name of the test suite
 		* @param {function} - The function that implements the suite
 		*/
-		
+
 		describe('The menu', function() {
 			/* A test that ensures the menu element is hidden by default. 
       */
@@ -127,12 +127,11 @@ $(
 			let firstFeed, secondFeed;
 
 			beforeEach(function(done) {
-				loadFeed(0, function() {
-					firstFeed = document.getElementsByClassName('feed')[0].children[0].innerText;
+				loadFeed(1, function() {
+					secondFeed = document.getElementsByClassName('feed')[0].children[0].innerText;
 
-					loadFeed(1, function() {
-						secondFeed = document.getElementsByClassName('feed')[0].children[0].innerText;
-
+					loadFeed(0, function() {
+						firstFeed = document.getElementsByClassName('feed')[0].children[0].innerText;
 						done();
 					});
 				});
